@@ -1,5 +1,5 @@
 name: "Sonos Webplayer"
-version: "0.0.2"
+version: "0.0.3"
 slug: "sonos-web"
 panel_icon: "mdi:speaker_group"
 description: Docker container for calling
