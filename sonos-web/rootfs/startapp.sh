@@ -7,6 +7,10 @@ export HOME=/config
 
 CUSTOM_START="/config/custom-start.sh"
 
+# Create custom start script if it does not exist
+if [ ! -f "$CUSTOM_START" ]; then
+  cat << 'EOF' > "$CUSTOM_START"
+  
 # Custom startup script
 # This file is executed automatically if present.
 EOF
@@ -55,10 +59,6 @@ fi
 rm -rf /config/downloads
 
 ln -s /share/firefox /config/downloads
-
-# Create custom start script if it does not exist
-if [ ! -f "$CUSTOM_START" ]; then
-  cat << 'EOF' > "$CUSTOM_START"
 
 /usr/bin/firefox --version
 exec /usr/bin/firefox "$@" >> /config/log/firefox/output.log 2>> /config/log/firefox/error.log
